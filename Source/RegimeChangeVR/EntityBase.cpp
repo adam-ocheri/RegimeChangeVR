@@ -18,7 +18,7 @@ void AEntityBase::BeginPlay()
 	HealthComponent->EventOnDied.AddUniqueDynamic(this, &AEntityBase::OnDiedEvent);
 }
 
-// Called every frame:
+// Called every frame
 void AEntityBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
