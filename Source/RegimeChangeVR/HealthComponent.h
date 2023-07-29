@@ -9,6 +9,9 @@
 UDELEGATE()
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDiedEvent);
 
+UDELEGATE()
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float, NewHealth);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class REGIMECHANGEVR_API UHealthComponent : public UActorComponent
 {
@@ -52,4 +55,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable, VisibleAnywhere, BlueprintReadWrite)
 	FOnDiedEvent EventOnDied;
+
+	UPROPERTY(BlueprintAssignable, VisibleAnywhere, BlueprintReadWrite)
+	FOnHealthChanged EventHealthChanged;
 };

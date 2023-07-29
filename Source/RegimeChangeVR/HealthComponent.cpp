@@ -47,6 +47,8 @@ void UHealthComponent::OnDamageInflicted(float DamageAmount)
 		bIsAlive = false;
 		EventOnDied.Broadcast();
 	}
+
+	EventHealthChanged.Broadcast(Health);
 }
 
 void UHealthComponent::OnEntityDamaged(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
@@ -66,6 +68,8 @@ void UHealthComponent::OnHealthRestored(float HealthAmount)
 	{
 		Health = MaxHealth;
 	}
+
+	EventHealthChanged.Broadcast(Health);
 }
 
 
