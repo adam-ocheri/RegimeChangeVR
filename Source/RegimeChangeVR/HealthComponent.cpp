@@ -40,15 +40,17 @@ void UHealthComponent::OnDamageInflicted(float DamageAmount)
 	if (Health - Damage > 0.0f)
 	{
 		Health -= Damage;
+		EventHealthChanged.Broadcast(Health);
 	}
 	else
 	{
 		Health = 0.0f;
 		bIsAlive = false;
+		EventHealthChanged.Broadcast(Health);
 		EventOnDied.Broadcast();
 	}
 
-	EventHealthChanged.Broadcast(Health);
+	
 }
 
 void UHealthComponent::OnEntityDamaged(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
