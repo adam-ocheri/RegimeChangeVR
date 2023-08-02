@@ -103,6 +103,11 @@ void AEntityBase::OnDiedEvent()
 	GetMesh()->SetAllBodiesPhysicsBlendWeight(1.0f);
 }
 
+bool AEntityBase::MaxControl()
+{
+	return !bControlLimited;
+}
+
 // Called to bind functionality to input
 void AEntityBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
