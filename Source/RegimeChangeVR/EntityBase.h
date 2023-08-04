@@ -45,6 +45,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void OnDiedEvent();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bControlLimited = false;
+
+	UFUNCTION(BlueprintCallable)
+	virtual bool MaxControl();
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
